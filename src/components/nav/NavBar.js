@@ -1,25 +1,23 @@
-import { Link, useNavigate } from "react-router-dom"
+// this code is copied from the modified version of ApplicationViews.js, 
+//    which customizes the links for ticktet views in a similar way 
+
+
+import { EmployeeNav } from "./EmployeeNav"
+import { CustomerNav } from "./CustomerNav"
 import "./NavBar.css"
 
 export const NavBar = () => {
-    const navigate = useNavigate()
 
-    return (
-        <ul className="navbar">
-            <li className="navbar__item active">
-                <Link className="navbar__link" to="/tickets">Tickets</Link>
-            </li>
-            {
-                localStorage.getItem("honey_user")
-                    ? <li className="navbar__item navbar__logout">
-                        <Link className="navbar__link" to="" onClick={() => {
-                            localStorage.removeItem("honey_user")
-                            navigate("/", {replace: true})
-                        }}>Logout</Link>
-                    </li>
-                    : ""
-            }
-        </ul>
-    )
+    const localHoneyUser = localStorage.getItem("honey_user")
+    const honeyUserObject = JSON.parse(localHoneyUser)
+
+    if (honeyUserObject.staff) {
+        //return employee views 
+        return <EmployeeNav /> 
+    }
+    else {
+        //return customer views
+        return <CustomerNav /> 
+    }
 }
 

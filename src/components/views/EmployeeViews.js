@@ -2,10 +2,9 @@
 
 
 import { Outlet, Route, Routes } from "react-router-dom"
-import { TicketForm } from "../tickets/TicketForm"
 import { TicketContainer } from "../tickets/TicketContainer"
 import { EmployeesList } from "../employees/EmployeesList"
-
+import { EmployeeDetails } from "../employees/EmployeeDetails"
 export const EmployeeViews = () => {
 	return (
         <Routes>
@@ -23,34 +22,36 @@ export const EmployeeViews = () => {
 
                 <Route path="tickets" element={<TicketContainer />} />
                 <Route path="employees" element={<EmployeesList />} />
-                
+                <Route path="employees/:employeeId" element={<EmployeeDetails />} />
+
             </Route>
         </Routes>
     )
 }
 
 /*
- import { Outlet, Route, Routes } from "react-router-dom"
+import { Outlet, Route, Routes } from "react-router-dom"
 import { TicketForm } from "../tickets/TicketForm"
 import { TicketContainer } from "../tickets/TicketContainer"
 
 export const ApplicationViews = () => {
-	return (
+    return (
         <Routes>
-            <Route path="/" element={
-                <>
-                    <h1>Honey Rae Repair Shop</h1>
-                    <div>Your one-stop-shop to get all your electronics fixed</div>
-
-                    <Outlet />
-                </>
-            }>
-
-            {/* when the route is "tickets", both the TicketSearch and TicketList 
+        <Route path="/" element={
+            <>
+            <h1>Honey Rae Repair Shop</h1>
+            <div>Your one-stop-shop to get all your electronics fixed</div>
+            
+            <Outlet />
+            </>
+        }>
+        
+        {/* when the route is "tickets", both the TicketSearch and TicketList 
         components will be the Route's elements   */ /*
-
-            <Route path="tickets" element={<TicketContainer />} />
-
+        
+        <Route path="tickets" element={<TicketContainer />} />
+        
+        <Route path="customers/:customerId" element={<CustomersList />} />
             <Route path="ticket/create" element={ <TicketForm /> } />
         </Route>
     </Routes>

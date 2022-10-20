@@ -5,6 +5,10 @@ import { Outlet, Route, Routes } from "react-router-dom"
 import { TicketContainer } from "../tickets/TicketContainer"
 import { EmployeesList } from "../employees/EmployeesList"
 import { EmployeeDetails } from "../employees/EmployeeDetails"
+import { CustomersList } from "../customers/CustomersList"
+import { CustomerDetails } from "../customers/CustomerDetails"
+
+
 export const EmployeeViews = () => {
 	return (
         <Routes>
@@ -23,6 +27,8 @@ export const EmployeeViews = () => {
                 <Route path="tickets" element={<TicketContainer />} />
                 <Route path="employees" element={<EmployeesList />} />
                 <Route path="employees/:employeeId" element={<EmployeeDetails />} />
+                <Route path="customers" element={<CustomersList />} />
+                <Route path="customers/:customerId" element={<CustomerDetails />} />
 
             </Route>
         </Routes>
@@ -51,7 +57,6 @@ export const ApplicationViews = () => {
         
         <Route path="tickets" element={<TicketContainer />} />
         
-        <Route path="customers/:customerId" element={<CustomersList />} />
             <Route path="ticket/create" element={ <TicketForm /> } />
         </Route>
     </Routes>

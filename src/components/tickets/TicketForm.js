@@ -16,7 +16,7 @@ export const TicketForm = () => {
         TODO: Use the useNavigation() hook so you can redirect
         the user to the ticket list
     */
-
+    const navigate = useNavigate() 
     const localHoneyUser = localStorage.getItem("honey_user")
     const honeyUserObject = JSON.parse(localHoneyUser)
 
@@ -41,6 +41,9 @@ export const TicketForm = () => {
 
         fetch("http://localhost:8088/serviceTickets", fetchOptions)
             .then(res => res.json())
+            .then(() => {
+                    navigate("/tickets")
+            })
     }
 
 

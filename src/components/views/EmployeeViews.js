@@ -7,7 +7,7 @@ import { EmployeesList } from "../employees/EmployeesList"
 import { EmployeeDetails } from "../employees/EmployeeDetails"
 import { CustomersList } from "../customers/CustomersList"
 import { CustomerDetails } from "../customers/CustomerDetails"
-
+import { Profile } from "../profiles/Profile"
 
 export const EmployeeViews = () => {
 	return (
@@ -29,6 +29,7 @@ export const EmployeeViews = () => {
                 <Route path="employees/:employeeId" element={<EmployeeDetails />} />
                 <Route path="customers" element={<CustomersList />} />
                 <Route path="customers/:customerId" element={<CustomerDetails />} />
+                <Route path="profiles" element={<Profile />} />
 
             </Route>
         </Routes>
